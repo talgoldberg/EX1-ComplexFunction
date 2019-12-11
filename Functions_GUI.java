@@ -1,5 +1,8 @@
 package Ex1;
 
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.List;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -25,80 +28,73 @@ public class Functions_GUI implements functions {
 	@Override
 	public boolean add(function arg0) 
 	{
-		funcs.add(arg0);
-		return true;
+		return funcs.add(arg0);
+		
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends function> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return funcs.addAll(arg0);
+		
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		funcs.clear();
 		
 	}
 
 	@Override
 	public boolean contains(Object arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return funcs.contains(arg0);
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return funcs.containsAll(arg0);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return funcs.isEmpty();
 	}
 
 	@Override
 	public Iterator<function> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return funcs.iterator();
 	}
 
 	@Override
 	public boolean remove(Object arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return funcs.remove(arg0);
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+	
+		return funcs.removeAll(arg0);
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return funcs.retainAll(arg0);
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return funcs.size();
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		return funcs.toArray();
 	}
 
 	@Override
 	public <T> T[] toArray(T[] arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		return funcs.toArray(arg0);
 	}
 
 	@Override
@@ -139,47 +135,66 @@ public class Functions_GUI implements functions {
 
 	@Override
 	public void drawFunctions(int width, int height, Range rx, Range ry, int resolution) {
-		// TODO Auto-generated method stub
 		
+	
+		
+		
+			StdDraw.setYscale(ry.get_min(),ry.get_max());
+			StdDraw.setXscale(rx.get_min(),rx.get_max());
+			StdDraw.setPenColor(Color.black);
+			StdDraw.setPenRadius(0.00010);  
+			for (double i =rx.get_min(); i < rx.get_max(); i++) {
+			 StdDraw.line(i,ry.get_min(),i,ry.get_max());
+		}
+		 	  
+		 	
+			for (double i = ry.get_min(); i < ry.get_max(); i++) {
+				 StdDraw.line(rx.get_min(),i,rx.get_max(),i);
+			}
+			   
+			 StdDraw.setPenRadius(0.00010); 
+			 StdDraw.setPenRadius(0.0020);
+			 StdDraw.line(rx.get_min(),0,rx.get_max(),0); 
+			 StdDraw.line(0,ry.get_min(),0,ry.get_max());
+			 StdDraw.setFont(new Font("TimesRoman", Font.BOLD, 15));
+			 for (double i = ry.get_min(); i < ry.get_max(); i++) {
+				 StdDraw.text(0, i, Integer.toString((int)i));
+			 }
+			
+			 for (double i = rx.get_min(); i < rx.get_max(); i++) {
+				 StdDraw.text(i, 0, Integer.toString((int)i));
+			 }
+			 
+			 for (int i = 0; i < funcs.size(); i++) {
+				
+			}
+	
+	
 	}
+	
+
 
 	@Override
 	public void drawFunctions(String json_file) {
-		// TODO Auto-generated method stub
+
 		
 	}
+
+		
+	
 
 	@Override
 	public String toString() 
 	{
 		return funcs.toString();
 	}
-//	public static void main(String[] args) throws IOException 
-//	{
-//		Functions_GUI data = new Functions_GUI();
-//		String s1 = "3.1+2.4x^2-x^4";
-//		String s2 = "5+2x-3.3x+0.1x^5";
-//		String[] s3 = {"x+3","x-2","x-4"};
-//		Polynom p1 = new Polynom(s1);
-//		Polynom p2 = new Polynom(s2);
-//		Polynom p3 = new Polynom(s3[0]);
-//		ComplexFunction cf3 = new ComplexFunction(p3);
-//		//for(int i=1;i<s3.length;i++) {
-//			//cf3.mul(new Polynom(s3[i]));
-//		//}
-//		String s4="mul(div(mul(x+1,x+3.0),x+3.0),x+2)"; 
-//			
-//		ComplexFunction cf = new ComplexFunction("plus", p1,p2);
-//		ComplexFunction cf2 = new ComplexFunction("plus", p1,p2);
-//		ComplexFunction cf5 = new ComplexFunction("plus", p1,p2);
-//		ComplexFunction cf4 = new ComplexFunction("plus", p1,p2);
-//		data.add(cf);
-//		data.add(cf2);
-//		data.add(cf5);
-//		data.add(cf4);
-//		data.saveToFile("asdf.txt");
-////		functions_GUI.initFromFile("C:\\Users\\TAL\\eclipse-workspace53\\Ex1\\asdf.txt");
-////		functions_GUI.saveToFile("asdf.txt");
+
+	public function get(int i) 
+	{
+		if(i<funcs.size())
+			return funcs.get(i);
+		return null;
+	}
 
 	}
 

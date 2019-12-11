@@ -207,9 +207,17 @@ public class ComplexFunction implements complex_function {
 
 	@Override
 	public void plus(function f1) {
-	
+		
 		String op=switchOp("plus");
-		ComplexFunction ans = right!=null ? new ComplexFunction(get_op(),getLeft(),getRight()) : new ComplexFunction(getLeft());
+		ComplexFunction ans = null;
+		if(right!=null) {
+		 ans=new ComplexFunction(get_op(),getLeft(),getRight());
+		
+		}
+		else {
+			new ComplexFunction(getLeft());
+		}
+		
 		ComplexFunction temp=new ComplexFunction(op,ans,f1);
 		System.out.println(temp);
 	}
@@ -218,17 +226,34 @@ public class ComplexFunction implements complex_function {
 	public void mul(function f1) {
 		
 		String op=switchOp("mul");
-		ComplexFunction ans = getRight()!=null ? new ComplexFunction(get_op(),getLeft(),getRight()) : new ComplexFunction(getLeft());
+		ComplexFunction ans = null;
+		if(right!=null) {
+		 ans=new ComplexFunction(get_op(),getLeft(),getRight());
+		
+		}
+		else {
+			new ComplexFunction(getLeft());
+		}
+		
 		ComplexFunction temp=new ComplexFunction(op,ans,f1);
 		System.out.println(temp);
-		
 	}
+		
+	
 
 	@Override
 	public void div(function f1) {
 	
 		String op=switchOp("div");
-		ComplexFunction ans = getRight()!=null ? new ComplexFunction(get_op(),getLeft(),getRight()) : new ComplexFunction(getLeft());
+		ComplexFunction ans = null;
+		if(right!=null) {
+		 ans=new ComplexFunction(get_op(),getLeft(),getRight());
+		
+		}
+		else {
+			new ComplexFunction(getLeft());
+		}
+		
 		ComplexFunction temp=new ComplexFunction(op,ans,f1);
 		System.out.println(temp);
 	}
@@ -237,7 +262,15 @@ public class ComplexFunction implements complex_function {
 	public void max(function f1) {
 		
 		String op=switchOp("max"); 
-		ComplexFunction ans = getRight()!=null ? new ComplexFunction(get_op(),getLeft(),getRight()) : new ComplexFunction(getLeft());
+		ComplexFunction ans = null;
+		if(right!=null) {
+		 ans=new ComplexFunction(get_op(),getLeft(),getRight());
+		
+		}
+		else {
+			new ComplexFunction(getLeft());
+		}
+		
 		ComplexFunction temp=new ComplexFunction(op,ans,f1);
 		System.out.println(temp);
 	}
@@ -246,7 +279,15 @@ public class ComplexFunction implements complex_function {
 	public void min(function f1) {
 		
 		String op=switchOp("min"); 
-		ComplexFunction ans = getRight()!=null ? new ComplexFunction(get_op(),getLeft(),getRight()) : new ComplexFunction(getLeft());
+		ComplexFunction ans = null;
+		if(right!=null) {
+		 ans=new ComplexFunction(get_op(),getLeft(),getRight());
+		
+		}
+		else {
+			new ComplexFunction(getLeft());
+		}
+		
 		ComplexFunction temp=new ComplexFunction(op,ans,f1);
 		System.out.println(temp);
 	}
@@ -255,7 +296,15 @@ public class ComplexFunction implements complex_function {
 	public void comp(function f1) {
 	
 		String op=switchOp("comp");
-		ComplexFunction ans = getRight()!=null ? new ComplexFunction(get_op(),getLeft(),getRight()) : new ComplexFunction(getLeft());
+		ComplexFunction ans = null;
+		if(right!=null) {
+		 ans=new ComplexFunction(get_op(),getLeft(),getRight());
+		
+		}
+		else {
+			new ComplexFunction(getLeft());
+		}
+		
 		ComplexFunction temp=new ComplexFunction(op,ans,f1);
 		System.out.println(temp);
 	}
